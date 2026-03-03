@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Muhammad Umair Raza | AI Researcher Dashboard</title>
+    
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- AI Video Background -->
+    <div class="video-background">
+        <video autoplay loop muted playsinline id="aiVideo">
+            <source src="https://assets.mixkit.co/videos/40860/40860-720.mp4" type="video/mp4">
+            <!-- Fallback: AI animation video -->
+        </video>
+        <div class="video-overlay"></div>
+    </div>
+    
+    <!-- Floating AI Icons -->
+    <div class="floating-ai">
+        <i class="fas fa-brain"></i>
+        <i class="fas fa-robot"></i>
+        <i class="fas fa-microchip"></i>
+        <i class="fas fa-network-wired"></i>
+        <i class="fas fa-cogs"></i>
+    </div>
+
+    <!-- Scroll Progress -->
+    <div class="progress-container">
+        <div class="progress-bar" id="scrollProgress"></div>
+    </div>
+
+    <!-- Main Dashboard -->
+    <div class="dashboard">
+        
+        <!-- ===== SIDEBAR ===== -->
+        <aside class="sidebar glass-effect" data-aos="fade-right" data-aos-duration="800">
+            <!-- Profile -->
+            <div class="profile-section">
+                <div class="profile-img-wrapper">
+                    <img src="umair.jpeg" alt="Dr. Umair Raza" class="profile-img" onerror="this.src='https://via.placeholder.com/150x150/8B4513/ffffff?text=Dr.Umair'">
+                    <div class="ai-badge">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                </div>
+                <h2 class="profile-name">Dr. Muhammad Umair Raza</h2>
+                <p class="profile-title">Ph.D. Computer Science · SZU</p>
+                <p class="profile-specialty">Explainable AI | Healthcare</p>
+                
+                <!-- Stats Pills -->
+                <div class="stats-pills">
+                    <div class="pill">
+                        <i class="fas fa-file-alt"></i>
+                        <span>12 Papers</span>
+                    </div>
+                    <div class="pill">
+                        <i class="fas fa-quote-right"></i>
+                        <span>100+ Cites</span>
+                    </div>
+                    <div class="pill">
+                        <i class="fas fa-calendar-check"></i>
+                        <span>Ph.D 2024</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Search -->
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" class="search-input" placeholder="Search publications..." id="searchInput">
+                <div class="search-results" id="searchResults"></div>
+            </div>
+            
+            <!-- Navigation -->
+            <nav class="sidebar-nav">
+                <a href="#about" class="nav-item active">
+                    <i class="fas fa-user"></i>
+                    <span>About</span>
+                </a>
+                <a href="#education" class="nav-item">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Education</span>
+                </a>
+                <a href="#experience" class="nav-item">
+                    <i class="fas fa-briefcase"></i>
+                    <span>Experience</span>
+                </a>
+                <a href="#publications" class="nav-item">
+                    <i class="fas fa-file-alt"></i>
+                    <span>Publications</span>
+                </a>
+                <a href="#research" class="nav-item">
+                    <i class="fas fa-microscope"></i>
+                    <span>Research</span>
+                </a>
+                <a href="#contact" class="nav-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>Contact</span>
+                </a>
+            </nav>
+            
+            <!-- Contact Cards -->
+            <div class="contact-cards">
+                <div class="contact-card glass-effect">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <small>Email</small>
+                        <p>umair@szu.edu.cn</p>
+                    </div>
+                </div>
+                <div class="contact-card glass-effect">
+                    <i class="fas fa-phone-alt"></i>
+                    <div>
+                        <small>Phone</small>
+                        <p>+86-18383163515</p>
+                    </div>
+                </div>
+                <div class="contact-card glass-effect">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <small>Location</small>
+                        <p>Shenzhen, China</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Social -->
+            <div class="social-icons">
+                <a href="#" class="social-icon"><i class="fab fa-google-scholar"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-researchgate"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-orcid"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-x-twitter"></i></a>
+            </div>
+            
+            <!-- CV Button -->
+            <button class="cv-button" id="downloadCV">
+                <i class="fas fa-download"></i>
+                <span>Download CV</span>
+            </button>
+        </aside>
+        
+        <!-- ===== MAIN CONTENT ===== -->
+        <main class="main-content">
+            
+            <!-- Hero Section -->
+            <section class="hero-section glass-effect" data-aos="fade-up">
+                <div class="hero-text">
+                    <h1>Muhammad Umair Raza, Ph.D.</h1>
+                    <p class="hero-subtitle">AI Researcher · Explainable AI Specialist</p>
+                    <div class="hero-badges">
+                        <span class="hero-badge"><i class="fas fa-brain"></i> XAI</span>
+                        <span class="hero-badge"><i class="fas fa-heartbeat"></i> Healthcare</span>
+                        <span class="hero-badge"><i class="fas fa-dna"></i> Cancer Research</span>
+                    </div>
+                </div>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <span class="hero-stat-value">12</span>
+                        <span class="hero-stat-label">Publications</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-value">100+</span>
+                        <span class="hero-stat-label">Citations</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-value">9</span>
+                        <span class="hero-stat-label">Conferences</span>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- About Section -->
+            <section id="about" class="content-section glass-effect" data-aos="fade-up">
+                <h2 class="section-title"><i class="fas fa-user-graduate"></i> About Me</h2>
+                <div class="about-content">
+                    <p><strong>Dr. Muhammad Umair Raza</strong> completed his Ph.D in Computer Science and Technology at Shenzhen University, China in 2024. His research focuses on <strong>Explainable Artificial Intelligence (XAI)</strong>, <strong>Interpretable Machine Learning</strong>, and <strong>Biomedical Image Processing</strong> for healthcare applications.</p>
+                    <p>He has published 12 papers in top conferences including AAAI, IEEE BIBM, and IEEE ICDL, with over 100 citations. His work aims to make AI decisions in healthcare interpretable and trustworthy.</p>
+                </div>
+            </section>
+            
+            <!-- Education & Experience Grid -->
+            <div class="grid-2">
+                <section id="education" class="content-section glass-effect" data-aos="fade-up">
+                    <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Education</h2>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-year">2020-2024</div>
+                        <div class="timeline-content">
+                            <h4>Ph.D. Computer Science</h4>
+                            <p>Shenzhen University, China</p>
+                            <small>Thesis: Interpretable Deep Learning for Cancer Classification</small>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-year">2016-2020</div>
+                        <div class="timeline-content">
+                            <h4>M.S. Computer Science</h4>
+                            <p>SWUST, Mianyang, China</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-year">2014-2016</div>
+                        <div class="timeline-content">
+                            <h4>B.S. Computer Science</h4>
+                            <p>NCBA&E, Lahore, Pakistan</p>
+                        </div>
+                    </div>
+                </section>
+                
+                <section id="experience" class="content-section glass-effect" data-aos="fade-up">
+                    <h2 class="section-title"><i class="fas fa-briefcase"></i> Experience</h2>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-year">2023-2024</div>
+                        <div class="timeline-content">
+                            <h4>Research Assistant</h4>
+                            <p>Shenzhen University</p>
+                            <small>Explainable AI in Healthcare</small>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-year">2022-2023</div>
+                        <div class="timeline-content">
+                            <h4>Teaching Assistant</h4>
+                            <p>Shenzhen University</p>
+                            <small>Machine Learning Course</small>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-year">2019-2022</div>
+                        <div class="timeline-content">
+                            <h4>Research Intern</h4>
+                            <p>SWUST, China</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            
+            <!-- Research Areas -->
+            <section id="research" class="content-section glass-effect" data-aos="fade-up">
+                <h2 class="section-title"><i class="fas fa-microscope"></i> Research Areas</h2>
+                <div class="research-tags">
+                    <span class="research-tag"><i class="fas fa-brain"></i> Explainable AI</span>
+                    <span class="research-tag"><i class="fas fa-robot"></i> Interpretable ML</span>
+                    <span class="research-tag"><i class="fas fa-eye"></i> Visual Explanations</span>
+                    <span class="research-tag"><i class="fas fa-heartbeat"></i> Healthcare AI</span>
+                    <span class="research-tag"><i class="fas fa-dna"></i> Cancer Classification</span>
+                    <span class="research-tag"><i class="fas fa-image"></i> Medical Imaging</span>
+                    <span class="research-tag"><i class="fas fa-project-diagram"></i> Deep Learning</span>
+                    <span class="research-tag"><i class="fas fa-code-branch"></i> Knowledge Distillation</span>
+                </div>
+            </section>
+            
+            <!-- Publications -->
+            <section id="publications" class="content-section glass-effect" data-aos="fade-up">
+                <h2 class="section-title"><i class="fas fa-file-alt"></i> Selected Publications</h2>
+                
+                <div class="publication-item">
+                    <div class="pub-meta">
+                        <span class="pub-year">2024</span>
+                        <span class="pub-cite"><i class="fas fa-quote-right"></i> 1 citation</span>
+                    </div>
+                    <div class="pub-authors">Adil Nawaz, Guopeng Chen, <strong>Muhammad Umair Raza</strong>, et al.</div>
+                    <div class="pub-title">Secure Distributed Sparse Gaussian Process Models Using Multi-Key Homomorphic Encryption</div>
+                    <div class="pub-venue">AAAI Conference on Artificial Intelligence, 2024</div>
+                </div>
+                
+                <div class="publication-item">
+                    <div class="pub-meta">
+                        <span class="pub-year">2024</span>
+                        <span class="pub-cite"><i class="fas fa-quote-right"></i> 2 citations</span>
+                    </div>
+                    <div class="pub-authors"><strong>Muhammad Umair Raza</strong>, Jie Chen, Adil Nawaz, et al.</div>
+                    <div class="pub-title">IBATree: Interpretable Cancer Cell Classification Using Information Bottleneck and Decision Trees</div>
+                    <div class="pub-venue">IEEE BIBM, 2024</div>
+                </div>
+                
+                <div class="publication-item">
+                    <div class="pub-meta">
+                        <span class="pub-year">2024</span>
+                        <span class="pub-cite"><i class="fas fa-quote-right"></i> 1 citation</span>
+                    </div>
+                    <div class="pub-authors"><strong>Muhammad Umair Raza</strong>, Jie Chen, Li Wang, et al.</div>
+                    <div class="pub-title">Enhanced Tree Regularization for Interpretable Cancer Cell Classification</div>
+                    <div class="pub-venue">IEEE BIBM, 2024</div>
+                </div>
+                
+                <div class="publication-item">
+                    <div class="pub-meta">
+                        <span class="pub-year">2023</span>
+                        <span class="pub-cite"><i class="fas fa-quote-right"></i> 2 citations</span>
+                    </div>
+                    <div class="pub-authors"><strong>Muhammad Umair Raza</strong>, Adil Nawaz, Xintong Liu, et al.</div>
+                    <div class="pub-title">Evaluating Saliency Methods on Acute Lymphoblastic Leukemia Classification Task</div>
+                    <div class="pub-venue">IEEE ICDL, 2023</div>
+                </div>
+                
+                <div class="publication-item">
+                    <div class="pub-meta">
+                        <span class="pub-year">2022</span>
+                        <span class="pub-cite"><i class="fas fa-quote-right"></i> 21 citations</span>
+                    </div>
+                    <div class="pub-authors">Muhammad Usman Shoukat, Lirong Yan, <strong>Muhammad Umair Raza</strong>, et al.</div>
+                    <div class="pub-title">Digital Twin-Driven Autonomous Driving Test Platform</div>
+                    <div class="pub-venue">INTELLECT, 2022</div>
+                </div>
+            </section>
+            
+            <!-- Skills Section -->
+            <section class="content-section glass-effect" data-aos="fade-up">
+                <h2 class="section-title"><i class="fas fa-code"></i> Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4><i class="fas fa-robot"></i> AI/ML</h4>
+                        <div class="skill-items">
+                            <span class="skill-item">Explainable AI</span>
+                            <span class="skill-item">Deep Learning</span>
+                            <span class="skill-item">Computer Vision</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4><i class="fas fa-code"></i> Frameworks</h4>
+                        <div class="skill-items">
+                            <span class="skill-item">TensorFlow</span>
+                            <span class="skill-item">PyTorch</span>
+                            <span class="skill-item">Keras</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4><i class="fas fa-laptop-code"></i> Languages</h4>
+                        <div class="skill-items">
+                            <span class="skill-item">Python</span>
+                            <span class="skill-item">R</span>
+                            <span class="skill-item">SQL</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Contact Form -->
+            <section id="contact" class="content-section glass-effect" data-aos="fade-up">
+                <h2 class="section-title"><i class="fas fa-paper-plane"></i> Send Message</h2>
+                
+                <div id="successMessage" class="alert success" style="display: none;">
+                    <i class="fas fa-check-circle"></i> Message sent successfully!
+                </div>
+                
+                <form id="contactForm" autocomplete="off">
+                    <div class="form-row">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <input type="text" name="subject" placeholder="Subject" required>
+                    <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+            </section>
+            
+            <!-- Footer -->
+            <footer class="footer">
+                <p>© 2024 Dr. Muhammad Umair Raza · Shenzhen University</p>
+                <p class="footer-ai">Specializing in Explainable AI for Healthcare</p>
+            </footer>
+        </main>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
